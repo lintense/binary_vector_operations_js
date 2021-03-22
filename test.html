@@ -91,6 +91,7 @@ function runTest(M,pone){
 	vectorpairs.push([v1,v2])
     }
     var time1 = new Date().getTime() - startime
+	    document.getElementById("res_"+M+"_"+pone+"_t1").innerHTML = time1
     var startime = new Date().getTime()
     var bvovectorpairs = []
     for (var i = 0; i < N; i++){
@@ -99,43 +100,42 @@ function runTest(M,pone){
 	bvovectorpairs.push([bv1,bv2])
     }
     var time2 = new Date().getTime() - startime
+		document.getElementById("res_"+M+"_"+pone+"_t2").innerHTML = time2
     var startime = new Date().getTime()    
     for (var i = 0; i < N; i++){
 	var res = bvovectorpairs[i][0].intersection(bvovectorpairs[i][1])
     }    
     var time3 = new Date().getTime() - startime
+	document.getElementById("res_"+M+"_"+pone+"_t3").innerHTML = time3
     var startime = new Date().getTime()
     for (var i = 0; i < N; i++){
 	var res2 = intersection(vectorpairs[i][0],vectorpairs[i][1])
     }
     var time4 = new Date().getTime() - startime
+	document.getElementById("res_"+M+"_"+pone+"_t4").innerHTML = time4
     var startime = new Date().getTime()    
     for (var i = 0; i < N; i++){
 	var res3 = bvovectorpairs[i][0].union(bvovectorpairs[i][1])
     }
     var time5 = new Date().getTime() - startime
+	document.getElementById("res_"+M+"_"+pone+"_t5").innerHTML = time5
     var startime = new Date().getTime()
     for (var i = 0; i < N; i++){    
 	var res4 = union(vectorpairs[i][0],vectorpairs[i][1])
     }
     var time6 = new Date().getTime() - startime
+	document.getElementById("res_"+M+"_"+pone+"_t6").innerHTML = time6
     var startime = new Date().getTime()    
     for (var i = 0; i < N; i++){    
 	var res5 = bvovectorpairs[i][0].difference(bvovectorpairs[i][1])
     }
     var time7 = new Date().getTime() - startime
+	document.getElementById("res_"+M+"_"+pone+"_t7").innerHTML = time7
     var startime = new Date().getTime()
     for (var i = 0; i < N; i++){    
 	var res6 = difference(vectorpairs[i][0],vectorpairs[i][1])
     }
     var time8 = new Date().getTime() - startime 		
-    document.getElementById("res_"+M+"_"+pone+"_t1").innerHTML = time1
-    document.getElementById("res_"+M+"_"+pone+"_t2").innerHTML = time2
-    document.getElementById("res_"+M+"_"+pone+"_t3").innerHTML = time3
-    document.getElementById("res_"+M+"_"+pone+"_t4").innerHTML = time4
-    document.getElementById("res_"+M+"_"+pone+"_t5").innerHTML = time5
-    document.getElementById("res_"+M+"_"+pone+"_t6").innerHTML = time6
-    document.getElementById("res_"+M+"_"+pone+"_t7").innerHTML = time7
     document.getElementById("res_"+M+"_"+pone+"_t8").innerHTML = time8         
 }
 
