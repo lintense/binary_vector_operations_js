@@ -34,10 +34,10 @@ class BinaryVector {
 		return this.rep==bv.rep
     }
     intersection(bv){
-		return this.size*bv.size ? bvzero : new BinaryVector(this.rep&bv.rep, Math.max(this.size,bv.size))
+		return this.size*bv.size ? new BinaryVector(this.rep&bv.rep, Math.max(this.size,bv.size)) : bvzero
     }
     union(bv){
-		return this.size ? bv : (bv.size ? this : new BinaryVector(this.rep|bv.rep, Math.max(this.size,bv.size)))
+		return this.size ? (bv.size ? new BinaryVector(this.rep|bv.rep, Math.max(this.size,bv.size)) : this) : bv
     }
 	inverse(){
 		return new BinaryVector(two ** BigInt(i) - one - this.rep, this.size)
