@@ -1,10 +1,7 @@
 var zero = BigInt(0)
 var one = BigInt(1)
 var two = BigInt(2)
-var range = 10
-var bigval = new Array(2**range)
-for (var i = 0; i < 2**range; i++)
-	bigval[i] = BigInt(i)
+var range = Math.floor(Math.log(Number.MAX_SAFE_INTEGER)/Math.log(2))-1
 var bvcount = 0
 
 class BinaryVector {
@@ -22,8 +19,8 @@ class BinaryVector {
 				var c = 0
 				var max = Math.min(i+range,this.size)
 				for (var ii = i; ii < max; ii++)
-					c += v[ii] ? 1<<(ii-i) : 0
-				this.rep += two ** BigInt(i) * bigval[c]
+					c += v[ii] ? 2**(ii-i) : 0
+				this.rep += two ** BigInt(i) * BigInt(c)
 			}
 		} else {
 			this.rep = zero
@@ -40,7 +37,7 @@ class BinaryVector {
 		return this.size ? (bv.size ? new BinaryVector(this.rep|bv.rep, Math.max(this.size,bv.size)) : this) : bv
     }
 	inverse(){
-		return new BinaryVector(two ** BigInt(i) - one - this.rep, this.size)
+		return new BinaryVector(two ** BigInt(this.size) - one - this.rep, this.size)
 	}
 	// Not really the difference
 	// Returns true when A=true and B=false
