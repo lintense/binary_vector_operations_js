@@ -5,8 +5,8 @@ var range = Math.floor(Math.log(Number.MAX_SAFE_INTEGER)/Math.log(2))-1
 var bvcount = 0
 
 class BinaryVector {
-    // create the binary vector from an array of booleans
-	// NOTE: It is assumed that all bv sizes to be equal
+    // create a BinaryVector from an array of booleans: new BinaryVector([true,false])
+	// Create a BinaryVector from its component: new BinaryVector(bv.rep, bv.size)
 	constructor(v,s=0){
 		bvcount++
 		if (s){
@@ -27,7 +27,7 @@ class BinaryVector {
 			this.size = 0;
 		}
 	}
-    equals(bv){ // returns boolean
+    equals(bv){
 		return this.rep==bv.rep
     }
     intersection(bv){
